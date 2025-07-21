@@ -1,0 +1,54 @@
+version: '3'
+services:
+  zhiyi-backend-gateway:
+    container_name: zhiyi-backend-gateway
+    build:
+      context: ./zhiyi-backend-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8101:8101"
+    networks:
+      - mynetwork
+
+  zhiyi-backend-user-service:
+    container_name: zhiyi-backend-user-service
+    build:
+      context: ./zhiyi-backend-user-service
+      dockerfile: Dockerfile
+    ports:
+      - "8102:8102"
+    networks:
+      - mynetwork
+    depends_on:
+      - zhiyi-backend-gateway
+
+  zhiyi-backend-question-service:
+    container_name: zhiyi-backend-question-service
+    build:
+      context: ./zhiyi-backend-question-service
+      dockerfile: Dockerfile
+    ports:
+      - "8103:8103"
+    networks:
+      - mynetwork
+    depends_on:
+      - zhiyi-backend-user-service
+      - zhiyi-backend-gateway
+
+  zhiyi-backend-judge-service:
+    container_name: zhiyi-backend-judge-service
+    build:
+      context: ./zhiyi-backend-judge-service
+      dockerfile: Dockerfile
+    ports:
+      - "8104:8104"
+    networks:
+      - mynetwork
+    depends_on:
+      - zhiyi-backend-user-service
+      - zhiyi-backend-question-service
+      - zhiyi-backend-gateway
+
+# 网络，不定义的话就是默认网络
+networks:
+  mynetwork:
