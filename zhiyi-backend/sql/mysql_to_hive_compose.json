@@ -1,0 +1,42 @@
+{
+  "job": {
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "your_mysql_username",
+            "password": "your_mysql_password",
+            "column": ["id", "name", "category_id", "from_date", "price"],
+            "splitPk": "",
+            "connection": [
+              {
+                "table": ["your_table_name"],
+                "jdbcUrl": ["jdbc:mysql://your_mysql_host:your_mysql_port/your_database_name"]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "hdfswriter",
+          "parameter": {
+            "defaultFS": "hdfs://your_hdfs_host:your_hdfs_port",
+            "fileType": "text",
+            "path": "/user/hive/warehouse/your_hive_db.db/your_table_name",
+            "fileName": "your_table_name",
+            "column": [
+              {"name": "id", "type": "string"},
+              {"name": "name", "type": "string"},
+              {"name": "category_id", "type": "string"},
+              {"name": "from_date", "type": "string"},
+              {"name": "price", "type": "string"}
+            ],
+            "writeMode": "append",
+            "fieldDelimiter": "\t",
+            "compress": "gzip"
+          }
+        }
+      }
+    ]
+  }
+}

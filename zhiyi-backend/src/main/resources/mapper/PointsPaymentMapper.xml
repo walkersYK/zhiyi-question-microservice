@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.zhiyi.mapper.PointsPaymentMapper">
+
+    <resultMap id="BaseResultMap" type="com.springboot.zhiyi.model.entity.PointsPayment">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="order_id" column="order_id" jdbcType="BIGINT"/>
+            <result property="order_no" column="order_no" jdbcType="VARCHAR"/>
+            <result property="user_id" column="user_id" jdbcType="BIGINT"/>
+            <result property="pay_type" column="pay_type" jdbcType="VARCHAR"/>
+            <result property="amount" column="amount" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="pay_channel" column="pay_channel" jdbcType="VARCHAR"/>
+            <result property="transaction_id" column="transaction_id" jdbcType="VARCHAR"/>
+            <result property="code_url" column="code_url" jdbcType="VARCHAR"/>
+            <result property="qr_code_url" column="qr_code_url" jdbcType="VARCHAR"/>
+            <result property="qr_code_expire_time" column="qr_code_expire_time" jdbcType="TIMESTAMP"/>
+            <result property="pay_time" column="pay_time" jdbcType="TIMESTAMP"/>
+            <result property="expire_time" column="expire_time" jdbcType="TIMESTAMP"/>
+            <result property="notify_time" column="notify_time" jdbcType="TIMESTAMP"/>
+            <result property="notify_result" column="notify_result" jdbcType="VARCHAR"/>
+            <result property="client_ip" column="client_ip" jdbcType="VARCHAR"/>
+            <result property="create_time" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="update_time" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,order_id,order_no,
+        user_id,pay_type,amount,
+        status,pay_channel,transaction_id,
+        code_url,qr_code_url,qr_code_expire_time,
+        pay_time,expire_time,notify_time,
+        notify_result,client_ip,create_time,
+        update_time
+    </sql>
+</mapper>

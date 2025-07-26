@@ -80,6 +80,6 @@
 
 ---
 
-![image-20250725205701626](C:\Users\YunJin\AppData\Roaming\Typora\typora-user-images\image-20250725205701626.png)
+![image-20250725205701626](.\img\image-20250725205701626.png)
 
-![image-20250725205729575](C:\Users\YunJin\AppData\Roaming\Typora\typora-user-images\image-20250725205729575.png)
+![image-20250725205729575](.\img\\image-20250725205729575.png)
